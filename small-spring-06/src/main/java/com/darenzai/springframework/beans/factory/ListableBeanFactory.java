@@ -1,6 +1,9 @@
 package com.darenzai.springframework.beans.factory;
 
 import com.darenzai.springframework.BeanFactory;
+import com.darenzai.springframework.beans.BeanException;
+
+import java.util.Map;
 
 /**
  * <p>
@@ -13,12 +16,12 @@ public interface ListableBeanFactory extends BeanFactory {
 
     /**
      * 按照类型返回 Bean 实例
-     * @param type
      * @param <T>
+     * @param type
      * @return
-     * @throws BeansException
+     * @throws BeanException
      */
-    <T> Map<String, T> getBeansOfType(Class<T> type) throws BeansException;
+    <T> Map<String, T> getBeansOfType(Class<T> type) throws BeanException;
 
     /**
      * Return the names of all beans defined in this registry.

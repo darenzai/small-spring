@@ -5,6 +5,7 @@ import com.darenzai.springframework.beans.PropertyValue;
 import com.darenzai.springframework.beans.PropertyValues;
 import com.darenzai.springframework.beans.factory.config.BeanReference;
 import com.darenzai.springframework.beans.factory.support.DefaultListableBeanFactory;
+import com.darenzai.springframework.beans.factory.xml.XmlBeanDefinitionReader;
 import com.darenzai.springframework.test.bean.UserDao;
 import com.darenzai.springframework.test.bean.UserService;
 import org.junit.Test;
@@ -40,5 +41,17 @@ public class ApiTest {
         userService.queryUserInfo();
     }
 
+
+    @Test
+    public void testXml() {
+        DefaultListableBeanFactory beanFactory = new DefaultListableBeanFactory();
+
+        XmlBeanDefinitionReader reader = new XmlBeanDefinitionReader(beanFactory);
+        reader.loadBeanDefinitions("classpath:spring.xml");
+        // 3. 获取Bean对象调用方法
+        UserService userService = beanFactory.getBean("userService", UserService.class);
+        String result = userService.queryUserInfo();
+        System.out.println("测试结果：" + result);
+    }
 
 }

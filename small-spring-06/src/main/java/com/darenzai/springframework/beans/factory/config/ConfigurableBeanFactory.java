@@ -1,5 +1,7 @@
 package com.darenzai.springframework.beans.factory.config;
 
+import com.darenzai.springframework.beans.factory.HierarchicalBeanFactory;
+
 /**
  * <p>
  * description: ConfigurableBeanFactory

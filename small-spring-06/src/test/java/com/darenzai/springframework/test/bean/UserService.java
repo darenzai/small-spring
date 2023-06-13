@@ -9,20 +9,27 @@ package com.darenzai.springframework.test.bean;
  */
 public class UserService {
 
-    private String name;
+    private String uId;
 
-    public UserService(String name) {
-        this.name = name;
+    private UserDao userDao;
+
+    public String queryUserInfo() {
+        return userDao.queryUserName(uId);
     }
 
-    public void queryUserInfo() {
-        System.out.println("查询用户信息：" + name);
+    public String getuId() {
+        return uId;
     }
 
-    @Override
-    public String toString() {
-        final StringBuilder sb = new StringBuilder("");
-        sb.append("").append(name);
-        return sb.toString();
+    public void setuId(String uId) {
+        this.uId = uId;
+    }
+
+    public UserDao getUserDao() {
+        return userDao;
+    }
+
+    public void setUserDao(UserDao userDao) {
+        this.userDao = userDao;
     }
 }
